@@ -1,0 +1,50 @@
+<html><head>
+    <title>Target: Omnicalc-1</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+
+  <body>
+    <h1>
+  Payment Results
+</h1>
+
+<dl>
+  <dt>
+    APR
+  </dt>
+  <dd>
+    <%= sprintf("%.4f%%", @apr) %>
+  </dd>
+
+  <dt>
+    Number of years
+  </dt>
+  <dd>
+    <%= @years %>
+  </dd>
+
+  <dt>
+    Principal
+  </dt>
+  <dd>
+    <%= sprintf("$%.2f", @present_value)%>
+  </dd>
+
+  <dt>
+    Payment
+  </dt>
+  <dd>
+    <!-- Had to look this one up (the thing given in the assignment wasn't working for me -->
+    <%= sprintf("$%0.2f", @result).gsub(/(\d)(?=(\d{3})+(?!\d))/, "\\1,") %>
+  </dd>
+</dl>
+
+<a href="/payment/new">
+  Calculate another payment
+</a>
+
+  
+
+</body>
+</html>
